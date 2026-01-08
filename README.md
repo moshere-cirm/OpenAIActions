@@ -2,6 +2,20 @@
 
 This is a simple Node.js Express server designed to be used as a GPT Action.
 
+## Configuration
+
+1.  Create a `.env` file in the root directory:
+    ```bash
+    cp .env.example .env 
+    # Or just create a new file named .env
+    ```
+2.  Add the following required environment variables to your `.env` file:
+    ```env
+    CLIENT_ID=your_github_client_id
+    CLIENT_SECRET=your_github_client_secret
+    ```
+    *   **Note**: You can obtain these by creating an OAuth App in your GitHub Developer Settings.
+
 ## Setup
 
 1.  Install dependencies:
@@ -18,6 +32,19 @@ This is a simple Node.js Express server designed to be used as a GPT Action.
 ## Exposing via Ngrok
 
 To use this with ChatGPT, you need to expose your local server to the internet.
+
+### Option 1: Using the built-in script (Recommended)
+This project includes a script to start the server and ngrok simultaneously (requires ngrok to be authenticated).
+
+```bash
+npm run start:ngrok
+```
+This command will:
+1.  Start the Express server.
+2.  Launch an ngrok tunnel.
+3.  Display the public URL and a test curl command.
+
+### Option 2: Manual Setup
 
 1.  [Install ngrok](https://ngrok.com/download) if you haven't already.
 2.  Run ngrok on port 3000:
