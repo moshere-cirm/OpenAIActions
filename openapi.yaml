@@ -4,7 +4,7 @@ info:
   description: API to get the current hour with authenticated user information.
   version: 1.0.0
 servers:
-  - url: https://92651089f8ea.ngrok-free.app
+  - url: https://<your-ngrok-url>
     description: Current Ngrok tunnel URL
 paths:
   /current-hour:
@@ -16,7 +16,7 @@ paths:
       security:
         - OAuth2: []
       responses:
-        '200':
+        "200":
           description: Successful response
           content:
             application/json:
@@ -33,7 +33,7 @@ paths:
                       id:
                         type: string
                         description: User ID
-                      username: 
+                      username:
                         type: string
                         description: Username
                       email:
@@ -56,6 +56,6 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://92651089f8ea.ngrok-free.app/authorize
-          tokenUrl: https://92651089f8ea.ngrok-free.app/token
-          scopes:
+          authorizationUrl: https://<your-ngrok-url>/oauth/authorize
+          tokenUrl: https://<your-ngrok-url>/oauth/token
+          scopes: {}
