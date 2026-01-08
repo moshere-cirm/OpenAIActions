@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: Time API with User Info
+  description: API to get the current hour with authenticated user information.
+  version: 1.0.0
+servers:
+  - url: https://92651089f8ea.ngrok-free.app
+    description: Current Ngrok tunnel URL
+paths:
+  /current-hour:
+    post:
+      operationId: getCurrentHour
+      summary: Get the current hour
+      description: Returns the current hour in 24-hour format.
+      x-openai-isConsequential: false
+      security:
+        - OAuth2: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hour:
+                    type: integer
+                    description: The current hour (0-23).
+                  user:
+                    type: object
+                    description: Authenticated user information
+                    properties:
+                      id:
+                        type: string
+                        description: User ID
+                      username: 
+                        type: string
+                        description: Username
+                      email:
+                        type: string
+                        description: User email
+                      name:
+                        type: string
+                        description: User full name
+                      provider:
+                        type: string
+                        description: Authentication provider
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: Request timestamp
+components:
+  schemas: {}
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://92651089f8ea.ngrok-free.app/authorize
+          tokenUrl: https://92651089f8ea.ngrok-free.app/token
+          scopes:

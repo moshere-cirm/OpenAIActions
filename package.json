@@ -1,0 +1,17 @@
+{
+    "name": "openai-actions-example",
+    "version": "1.0.0",
+    "description": "Simple GPT Action endpoint",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "start:ngrok": "node start-ngrok.js"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.3",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "ngrok": "^5.0.0-beta.2"
+    }
+}
