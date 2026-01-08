@@ -11,10 +11,10 @@ This is a simple Node.js Express server designed to be used as a GPT Action.
     ```
 2.  Add the following required environment variables to your `.env` file:
     ```env
-    CLIENT_ID=your_github_client_id
-    CLIENT_SECRET=your_github_client_secret
+    CLIENT_ID=your_gpt_oauth_client_id
+    CLIENT_SECRET=your_gpt_oauth_client_secret
     ```
-    *   **Note**: You can obtain these by creating an OAuth App in your GitHub Developer Settings.
+    *   **Note**: These should be the **Client ID** and **Client Secret** for your GPT OAuth configuration. In this example code, we use GitHub as the Identity Provider (IDP), so these would be your GitHub keys. If you use a different IDP, provide the keys from that provider.
 
 ## Setup
 

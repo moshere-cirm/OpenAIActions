@@ -29,7 +29,7 @@ if (!CLIENT_ID || !CLIENT_SECRET) {
 app.post('/oauth/token', async (req, res) => {
   const { code, redirect_uri } = req.body;
 
-  /*TODO this need to be changed to read from your IDP*/
+  /* TBD: This needs to be changed to read from your IDP */
   const ghRes = await fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
     headers: {
@@ -64,7 +64,7 @@ app.post('/current-hour', async (req, res) => {
       // so ChatGPT doesn’t think the connection is broken.
       return res.status(401).json({ error: 'missing_access_token' });
     }
-    /*TODO this need to be changed to read from your IDP*/
+    /* TBD: This needs to be changed to read from your IDP */
     // Get user info from GitHub
     const userRes = await fetch('https://api.github.com/user', {
       headers: {
